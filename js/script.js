@@ -1,15 +1,15 @@
 // 1
 const form = document.getElementById('colorForm');
 
-    form.addEventListener('change', (event) => {
-      if (event.target.name === 'color') {
-        document.body.style.backgroundColor = event.target.value;
-      }
-    });
+radioRed.addEventListener("change", changeColor);
+radioGreen.addEventListener("change", changeColor);
+radioWhite.addEventListener("change", changeColor);
 
-    document.body.style.backgroundColor = form.color.value;
+function changeColor(event) {
+  document.body.style.backgroundColor = event.target.value;
+}
 // 2
-const input = document.getElementById('name-input');
+const input = document.getElementById('name-input');  
     const output = document.getElementById('name-output');
 
     input.addEventListener('input', () => {
