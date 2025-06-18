@@ -1,19 +1,32 @@
 // 1
-const form = document.getElementById('colorForm');
+const radioRed = document.getElementById("radioRed");
+const radioWhite = document.getElementById("radioWhite");
+const radioGreen = document.getElementById("radioGreen");
 
 radioRed.addEventListener("change", changeColor);
-radioGreen.addEventListener("change", changeColor);
 radioWhite.addEventListener("change", changeColor);
+radioGreen.addEventListener("change", changeColor);
 
 function changeColor(event) {
   document.body.style.backgroundColor = event.target.value;
 }
 // 2
-const input = document.getElementById('name-input');  
-    const output = document.getElementById('name-output');
+const input = document.getElementById("validation-input");
 
-    input.addEventListener('input', () => {
-      const name = input.value.trim();
-      output.textContent = name === '' ? 'незнайомець' : name;
-    });
+  input.addEventListener("blur", () => {
+    const requiredLength = parseInt(input.dataset.length);
+    const actualLength = input.value.length;
+
+    input.classList.remove("valid", "invalid");
+
+    if (actualLength === requiredLength) {
+      input.classList.add("valid");
+    } else {
+      input.classList.add("invalid");
+    }
+  });
 // 3
+const range = document.querySelector("#font-size-control");
+const span = document.querySelector("#text");
+
+range.oninput = (() => span.style.fontSize = range.value + "px");
